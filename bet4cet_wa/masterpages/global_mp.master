@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="global_mp.master.cs" Inherits="bet4cet_wa.global_mp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<link href="/css/reset.css" rel="stylesheet" />
+	<link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="/js/jquery321.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder id="tohead_globalmp" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+	<asp:ContentPlaceHolder id="tobody_globalmp" runat="server">
+	</asp:ContentPlaceHolder>
+</body>
+</html>

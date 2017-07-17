@@ -67,6 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="masterpages\global_mp.master" />
+    <Content Include="masterpages\web_mp.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,18 +80,52 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\reset.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery321.min.js" />
+    <Content Include="js\md5.min.js" />
+    <Content Include="login_web.aspx" />
     <Content Include="Web.config" />
+    <Content Include="zNotas_de_projeto.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\global_b4c.cs" />
+    <Compile Include="classes\intl_b4c.cs" />
+    <Compile Include="classes\security_b4c.cs" />
+    <Compile Include="classes\stc_util_b4c.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="login_web.aspx.cs">
+      <DependentUpon>login_web.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login_web.aspx.designer.cs">
+      <DependentUpon>login_web.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\global_mp.master.cs">
+      <DependentUpon>global_mp.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\global_mp.master.designer.cs">
+      <DependentUpon>global_mp.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\web_mp.master.cs">
+      <DependentUpon>web_mp.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\web_mp.master.designer.cs">
+      <DependentUpon>web_mp.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\" />
     <Folder Include="Models\" />
+    <Folder Include="test\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
