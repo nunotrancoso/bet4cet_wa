@@ -11,7 +11,7 @@ namespace Bet4CetTests
 		public void ValidateMD5()
 		{
 
-//			security_b4c_md5 teste = new security_b4c_md5();
+        // Verifica se o método de encriptação está a retornar os valores esperados.
 
 			Assert.AreEqual("698dc19d489c4e4db73e28a713eab07b", security_b4c_md5.StringToMD5("teste"));
 			Assert.AreNotEqual("698dc19d489c4e4db73e28a713eab07b", security_b4c_md5.StringToMD5("cinel"));
