@@ -12,8 +12,8 @@ using System.Security.Cryptography;
 /// <summary>
 /// Summary description for security_b4c
 /// </summary>
-namespace security_b4c
-{ 
+namespace b4c_classes
+{
 	public static class security_b4c_md5
 	{
 		public static string StringToMD5(string input)

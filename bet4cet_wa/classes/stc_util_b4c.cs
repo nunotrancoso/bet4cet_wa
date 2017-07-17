@@ -11,14 +11,17 @@ using System.Web;
 /// <summary>
 /// Summary description for util_b4c
 /// </summary>
-public class stc_util_b4c
+namespace b4c_classes
 {
-	stc_util_b4c()
+	public class stc_util_b4c
 	{
-		// static contructor
-	}
-	public static string GetPageName(System.Web.UI.Page page)
-	{
-		return Path.GetFileName(page.Server.MapPath(page.AppRelativeVirtualPath));
+		stc_util_b4c()
+		{
+			// static contructor
+		}
+		public static string GetPageName(System.Web.UI.Page page)
+		{
+			return Path.GetFileName(page.Server.MapPath(page.AppRelativeVirtualPath));
+		}
 	}
 }
