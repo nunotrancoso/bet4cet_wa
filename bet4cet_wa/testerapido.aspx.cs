@@ -13,7 +13,9 @@ namespace bet4cet_wa
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Debug.WriteLine(b4c_SendMail.SendMailPub(new string[] { "erazerpt@gmail.com",b4c_SendMail.mailhostuser}, "teste numero 2", "testedosendmail depois de alteracoes"));
+			//Debug.WriteLine(b4c_SendMail.SendMailPub(new string[] { "erazerpt@gmail.com",b4c_SendMail.mailhostuser}, "teste numero 2", "testedosendmail depois de alteracoes"));
+			string _email = "0987654321@facebook.com";
+			Debug.WriteLine(_email.Substring(_email.Length - 13, 13));
 		}
 	}
 }

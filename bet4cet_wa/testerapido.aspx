@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="teste_sendmail.aspx.cs" Inherits="bet4cet_wa.teste_sendmail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="testerapido.aspx.cs" Inherits="bet4cet_wa.teste_sendmail" %>
 
 <!DOCTYPE html>
 

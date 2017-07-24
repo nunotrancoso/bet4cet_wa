@@ -33,5 +33,17 @@ namespace b4c_classes
 			if ((weblog!=null)&&(weblog.Count > 0)) { foreach (string s in weblog) { tolog += s; } }
 			return tolog;
  		}
+		public static bool IsValidEmail(string email)
+		{
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress(email);
+				return addr.Address == email;
+			}
+			catch
+			{
+				return false;
+			}
+		}
 	}
 }

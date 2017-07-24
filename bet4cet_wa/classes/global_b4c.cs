@@ -22,5 +22,11 @@ namespace b4c_classes
 		public static readonly string site_revision = "1";
 		public static readonly string site_title = site_name + " " + site_version + "." + site_revision;
 	}
+	public class b4c_message
+	{
+		public long msg_res;
+		public long msg_errnum;
+		public string msg_errmsg;
+	}
 }
 
