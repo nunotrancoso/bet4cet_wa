@@ -66,12 +66,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\bet4cet_global.js" />
+    <Content Include="js\facebook.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="masterpages\global_mp.master" />
     <Content Include="masterpages\web_mp.master" />
+    <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,13 +90,19 @@
     <Content Include="js\jquery321.min.js" />
     <Content Include="js\md5.min.js" />
     <Content Include="login_web.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="teste_sendmail.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="zNotas_de_projeto.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\crc32.cs" />
     <Compile Include="classes\global_b4c.cs" />
     <Compile Include="classes\intl_b4c.cs" />
+    <Compile Include="classes\login_b4c.cs" />
     <Compile Include="classes\security_b4c.cs" />
+    <Compile Include="classes\sendmail_b4c.cs" />
     <Compile Include="classes\stc_util_b4c.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -120,6 +129,13 @@
       <DependentUpon>web_mp.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="teste_sendmail.aspx.cs">
+      <DependentUpon>teste_sendmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teste_sendmail.aspx.designer.cs">
+      <DependentUpon>teste_sendmail.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

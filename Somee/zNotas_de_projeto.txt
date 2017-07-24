@@ -1,0 +1,6 @@
+﻿1.
+
+Por requisito temos de usar MD5 para as passwords, mas é inutil visto que não temos HTTPS. Se a implementação
+for feita do lado do servidor, com o normal code-behind, torna-se ainda pior, corremos o risco de a password
+viajar em plain text. Assim sendo, torna-se imperativo que a password seja transformada em hash ainda no lado
+do cliente via Javascript, e só é enviada a hash.

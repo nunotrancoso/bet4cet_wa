@@ -67,12 +67,21 @@ namespace bet4cet_wa {
         protected global::System.Web.UI.WebControls.HiddenField hf_hashpass;
         
         /// <summary>
-        /// lbl_erro control.
+        /// lb_justtogetpostback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_erro;
+        protected global::System.Web.UI.WebControls.LinkButton lb_justtogetpostback;
+        
+        /// <summary>
+        /// lit_weblog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lit_weblog;
     }
 }

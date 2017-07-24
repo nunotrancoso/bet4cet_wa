@@ -23,5 +23,15 @@ namespace b4c_classes
 		{
 			return Path.GetFileName(page.Server.MapPath(page.AppRelativeVirtualPath));
 		}
+		public static void AddToWebLog(List<string> weblog,string tolog)
+		{
+			weblog.Add(DateTime.Now.ToString() + " : " + tolog + "<br/>");
+		}
+		public static string WriteWebLog(List<string> weblog)
+		{
+			string tolog = "";
+			if ((weblog!=null)&&(weblog.Count > 0)) { foreach (string s in weblog) { tolog += s; } }
+			return tolog;
+ 		}
 	}
 }
