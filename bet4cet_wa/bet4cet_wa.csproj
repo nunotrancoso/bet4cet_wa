@@ -97,14 +97,14 @@
     <Content Include="zNotas_de_projeto.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\crc32.cs" />
-    <Compile Include="classes\db_dataclasses_b4c.cs" />
-    <Compile Include="classes\global_b4c.cs" />
-    <Compile Include="classes\intl_b4c.cs" />
-    <Compile Include="classes\login_b4c.cs" />
-    <Compile Include="classes\security_b4c.cs" />
-    <Compile Include="classes\sendmail_b4c.cs" />
-    <Compile Include="classes\stc_util_b4c.cs" />
+    <Compile Include="App_Code\crc32.cs" />
+    <Compile Include="App_Code\db_dataclasses_b4c.cs" />
+    <Compile Include="App_Code\global_b4c.cs" />
+    <Compile Include="App_Code\intl_b4c.cs" />
+    <Compile Include="App_Code\login_b4c.cs" />
+    <Compile Include="App_Code\security_b4c.cs" />
+    <Compile Include="App_Code\sendmail_b4c.cs" />
+    <Compile Include="App_Code\stc_util_b4c.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

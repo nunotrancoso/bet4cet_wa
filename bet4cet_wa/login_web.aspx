@@ -36,7 +36,7 @@
 				<!-- <asp:TextBox CssClass="form-control" ID="tb_password_" runat="server" ViewStateMode="Disabled"></asp:TextBox> -->
 				<br/>
 				<input id="btn_loginfacebook" class="btn btn-primary btn-lg btn-block" type="button" value="Login com Facebook" onclick="FBLogin(); return false;"/>
-				<input id="btn_loginfacebookfake" class="btn btn-primary btn-lg btn-block" type="button" value="Login com Facebook fake" onclick="__doPostBack('FBLOGIN','0987654321_Nuno Trancoso'); return false;"/>
+				<input id="btn_loginfacebookfake" class="btn btn-primary btn-lg btn-block" type="button" value="Login com Facebook fake 1 " onclick="__doPostBack('FBLOGIN', '884173438407142_Nuno Trancoso'); return false;"/>
 				<asp:Button type="button" CssClass="btn btn-primary btn-lg btn-block" id="btn_login" runat="server" Text="" ViewStateMode="Disabled" OnClick="btn_login_Click" />
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
@@ -44,6 +44,9 @@
 						<asp:HiddenField ID="hf_hashpass" runat="server" ClientIDMode="Static" />
 					</div>
 					<div class="col-xs-12 col-sm-6">
+						<!-- This is a GREAT example of when ASPX totally sucks. There are other methods of forcing the __doPostBack() to exist on a page,
+							none of which actually worked here. So, we do the BadThingTM and just drop a useless LinkButton control onto the page. Presto,
+							now we have __doPostBack(). Sometimes... -->
 						<asp:LinkButton ID="lb_justtogetpostback" runat="server" Visible="True" PostBackUrl="~/login_web.aspx">Desenvolvido por NóS</asp:LinkButton>
 					</div>
 				</div>
