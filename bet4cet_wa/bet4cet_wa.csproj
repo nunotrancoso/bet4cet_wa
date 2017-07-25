@@ -83,11 +83,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\reset.css" />
     <Content Include="Global.asax" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery321.min.js" />
     <Content Include="js\md5.min.js" />
     <Content Include="login_web.aspx" />
     <Content Include="testerapido.aspx" />
@@ -101,7 +98,7 @@
     <Compile Include="App_Code\db_dataclasses_b4c.cs" />
     <Compile Include="App_Code\global_b4c.cs" />
     <Compile Include="App_Code\intl_b4c.cs" />
-    <Compile Include="App_Code\login_b4c.cs" />
+    <Compile Include="App_Code\utilizador_b4c.cs" />
     <Compile Include="App_Code\security_b4c.cs" />
     <Compile Include="App_Code\sendmail_b4c.cs" />
     <Compile Include="App_Code\stc_util_b4c.cs" />

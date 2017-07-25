@@ -69,11 +69,23 @@ namespace bet4cet_wa
 							fbuid = fbstringarray[0];
 							fbuname = fbstringarray[1];
 							// Check if FB user already exists
-							VerificarUtilizadorEmail_b4c veremail = new VerificarUtilizadorEmail_b4c(fbuid + "@facebook.com");
-							b4c_message mes = veremail.Check();
-							#if LOG
-								stc_util_b4c.AddToWebLog(log_string, "Login WebPage - FBLOGIN Postback - res : " + mes.msg_res.ToString()+" sql_errnum : " + mes.msg_errnum.ToString()+" sql_errmsg : " + mes.msg_errmsg.ToString());
-							#endif
+							utilizador_b4c user = new utilizador_b4c(fbuid + "@facebook.com","");
+							if (user.VerificarUtilizadorEmail())
+							{
+								#if LOG
+									stc_util_b4c.AddToWebLog(log_string, "Login WebPage - FBLOGIN Postback - res : " + user.Message_Res.ToString() + " sql_errnum : " + user.Message_ErrNum.ToString() + " sql_errmsg : " + user.Message_ErrMsg.ToString());
+								#endif
+								// If user exists log him in, if not, try to create it
+								if (user.Message_Res > 0)
+								{
+									// User already exists, log him in and redirect to landing page
+									Session["islogged"] = "1";
+								}
+								else
+								{
+									// User doesn't exist yet, try to create
+								}
+							}
 						}
 					}
 				}
