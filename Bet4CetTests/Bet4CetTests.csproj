@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bet4cet_wa\bet4cet_wa.csproj">
-      <Project>{54E1C94E-2FD1-4020-A490-974A8EDEEDA7}</Project>
+      <Project>{54e1c94e-2fd1-4020-a490-974a8edeeda7}</Project>
       <Name>bet4cet_wa</Name>
     </ProjectReference>
   </ItemGroup>
