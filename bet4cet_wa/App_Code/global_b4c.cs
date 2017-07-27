@@ -13,7 +13,7 @@ using System.Diagnostics;
 /// <summary>
 /// Summary description for global_b4c
 /// </summary>
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	public static class b4c_global
 	{

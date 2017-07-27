@@ -11,7 +11,7 @@ using System.Web;
 /// <summary>
 /// Summary description for util_b4c
 /// </summary>
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	public class stc_util_b4c
 	{

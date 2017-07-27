@@ -13,7 +13,7 @@ using System.Diagnostics;
 /// <summary>
 /// Summary description for SendMail
 /// </summary>
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	static public class b4c_SendMail
 	{

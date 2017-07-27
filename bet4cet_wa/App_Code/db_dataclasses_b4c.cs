@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	public class dbdata_b4c
 	{
@@ -42,6 +42,29 @@ namespace b4c_classes
 		{
 			_ipk = obj._ipk; _uid = obj._uid; _gid = obj._gid; _email = obj._email; _pswd = obj._pswd; _uname = obj._uname;
 			_datanascimento = obj._datanascimento; _dataregisto = obj._dataregisto;
+		}
+		//
+	}
+	public class dbdata_paginainicial_b4c
+	{
+		//
+		private long _ipk, _gid;
+		private string _paginainicial;
+		//
+		public long Ipk { get { return _ipk; } set { _ipk = value; } }
+		public long Gid { get { return _gid; } set { _gid = value; } }
+		public string PaginaInicial { get { return _paginainicial; } set { _paginainicial = value; } }
+		//
+		public dbdata_paginainicial_b4c() : this(0, 0,"/login_web.aspx")
+		{
+		}
+		public dbdata_paginainicial_b4c(long ipk, long gid, string paginainicial)
+		{
+			_ipk = ipk; _gid = gid; _paginainicial = paginainicial;
+		}
+		public dbdata_paginainicial_b4c(dbdata_paginainicial_b4c obj)
+		{
+			_ipk = obj._ipk; _gid = obj._gid; _paginainicial = obj._paginainicial;
 		}
 		//
 	}

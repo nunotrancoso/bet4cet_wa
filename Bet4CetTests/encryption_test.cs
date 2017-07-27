@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using b4c_classes;
+using bet4cet_wa;
 
 namespace Bet4CetTests
 {

@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 /// <summary>
 /// Summary description for security_b4c
 /// </summary>
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	public static class security_b4c_md5
 	{

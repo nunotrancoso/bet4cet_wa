@@ -98,6 +98,7 @@
     <Compile Include="App_Code\db_dataclasses_b4c.cs" />
     <Compile Include="App_Code\global_b4c.cs" />
     <Compile Include="App_Code\intl_b4c.cs" />
+    <Compile Include="App_Code\paginainicial_b4c.cs" />
     <Compile Include="App_Code\utilizador_b4c.cs" />
     <Compile Include="App_Code\security_b4c.cs" />
     <Compile Include="App_Code\sendmail_b4c.cs" />

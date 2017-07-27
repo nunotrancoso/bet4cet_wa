@@ -13,7 +13,7 @@ using System.Diagnostics;
 /// <summary>
 /// Summary description for global_b4c
 /// </summary>
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	public enum b4c_lang : int { pt_pt, en_us };
 	public enum b4c_text : int { username, password, login, register, resetpass }

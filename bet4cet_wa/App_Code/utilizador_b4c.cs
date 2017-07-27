@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace b4c_classes
+namespace bet4cet_wa
 {
 	interface IErrorMessage
 	{
@@ -18,7 +18,6 @@ namespace b4c_classes
 	}
 	public class utilizador_b4c : IErrorMessage
 	{
-		// private string _user.Email, _user.Pswd = pswd;;
 		//
 		private b4c_message _message;
 		public long Message_Res	{ get {	return _message.msg_res; } set { _message.msg_res = value; } }
@@ -84,7 +83,7 @@ namespace b4c_classes
 				SqlCommand sqlcmd = new SqlCommand("LoginUtilizador", sqlcon);
 				sqlcmd.CommandType = CommandType.StoredProcedure;
 				sqlcmd.Parameters.Add("@email", SqlDbType.VarChar, 128).Value = _user.Email;
-				sqlcmd.Parameters.Add("@pswd", SqlDbType.VarChar, 32).Value = _user.Pswd = pswd;;
+				sqlcmd.Parameters.Add("@pswd", SqlDbType.VarChar, 32).Value = _user.Pswd = pswd;
 				sqlcmd.Parameters.Add("@res", SqlDbType.BigInt).Direction = ParameterDirection.Output;
 				sqlcmd.Parameters.Add("@sql_errnum", SqlDbType.BigInt).Direction = ParameterDirection.Output;
 				sqlcmd.Parameters.Add("@sql_errmsg", SqlDbType.VarChar, 192).Direction = ParameterDirection.Output;

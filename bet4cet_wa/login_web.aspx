@@ -4,7 +4,7 @@
 	<script src="/js/facebook.js"></script>
 	<asp:Literal ID="lit_title" runat="server"></asp:Literal>
 	<!-- FB OG Tags -->
-	<meta property="og:url" content="http://www.bet4cet.net">
+	<meta property="og:url" content="http://www.bet4cet.somee.com">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="OG Test">
 	<meta property="og:description" content="Just a small FB test on OG tags">
