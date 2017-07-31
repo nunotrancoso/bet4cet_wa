@@ -97,6 +97,8 @@
     <Compile Include="App_Code\crc32.cs" />
     <Compile Include="App_Code\db_dataclasses_b4c.cs" />
     <Compile Include="App_Code\global_b4c.cs" />
+    <Content Include="App_Code\grupoutilizador_b4c.cs" />
+    <Content Include="App_Code\grupo_b4c.cs" />
     <Compile Include="App_Code\intl_b4c.cs" />
     <Compile Include="App_Code\paginainicial_b4c.cs" />
     <Compile Include="App_Code\utilizador_b4c.cs" />

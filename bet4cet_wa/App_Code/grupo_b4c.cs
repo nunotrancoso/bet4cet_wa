@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 
 namespace bet4cet_wa
 {
-	public class paginainicial_b4c : IErrorMessage
+	public class grupos_b4c : IErrorMessage
 	{
 		//
 		private b4c_message _message;
@@ -22,22 +22,19 @@ namespace bet4cet_wa
 		public long Message_ErrNum { get { return _message.msg_errnum; } set { _message.msg_errnum = value; } }
 		public string Message_ErrMsg { get { return _message.msg_errmsg; } set { _message.msg_errmsg = value; } }
 		//
-		private List<dbdata_paginainicial_b4c> _paginainicial;
-		//
-		public paginainicial_b4c()
+		public grupos_b4c()
 		{
 			_message = new b4c_message();
 		}
-		//
-		public void PaginaInicial_Carregar()
+		public List<dbdata_grupo_b4c> ListarGrupos()
 		{
-			// SQL calls to the stored Procedures
-			_paginainicial = new List<dbdata_paginainicial_b4c>();
+			//
+			List<dbdata_grupo_b4c> _temp = new List<dbdata_grupo_b4c>();
 			try
 			{
-				// Are the Login Credentials right?
+				// SQL calls to the stored Procedures
 				SqlConnection sqlcon = new SqlConnection(b4c_global.ConnectionString);
-				SqlCommand sqlcmd = new SqlCommand("PaginaInicial_Listar", sqlcon);
+				SqlCommand sqlcmd = new SqlCommand("Grupo_Listar", sqlcon);
 				sqlcmd.CommandType = CommandType.StoredProcedure;
 				sqlcmd.Parameters.Add("@res", SqlDbType.BigInt).Direction = ParameterDirection.Output;
 				sqlcmd.Parameters.Add("@sql_errnum", SqlDbType.BigInt).Direction = ParameterDirection.Output;
@@ -47,11 +44,15 @@ namespace bet4cet_wa
 				// sqlcmd.ExecuteNonQuery();
 				while (sqldr.Read())
 				{
-					dbdata_paginainicial_b4c _temppi = new dbdata_paginainicial_b4c();
-					_temppi.Ipk = Convert.ToInt64(sqldr["ipk"]);
-					_temppi.Gid = Convert.ToInt64(sqldr["gid"]);
-					_temppi.PaginaInicial = sqldr["paginainicial"].ToString();
-					_paginainicial.Add(_temppi);
+					/* [ipk],[idgrupo],[nome],[datacriacao],[idadmin],[activo] */
+					dbdata_grupo_b4c _tempru = new dbdata_grupo_b4c();
+					_tempru.Ipk = Convert.ToInt64(sqldr["ipk"]);
+					_tempru.IdGrupo = Convert.ToInt64(sqldr["idgrupo"]);
+					_tempru.NomeGrupo = sqldr["nome"].ToString();
+					_tempru.DataCriacao = Convert.ToDateTime(sqldr["datacriacao"]);
+					_tempru.IdAdmin = Convert.ToInt64(sqldr["idadmin"]);
+					_tempru.Activo = Convert.ToInt32(sqldr["activo"]);
+					_temp.Add(_tempru);
 				}
 				sqlcon.Close();
 				Message_Res = Convert.ToInt64(sqlcmd.Parameters["@res"].Value);
@@ -60,23 +61,12 @@ namespace bet4cet_wa
 			}
 			catch (Exception e)
 			{
+				// Output the Exception
+				Debug.WriteLine("Listar Grupos : Exception " + e.Message);
 				// If we got here, something happend but we don't know exactly WHAT
-				Message_Res = -1; Message_ErrNum = -1; Message_ErrMsg = "Unspecified error has occurred!";
+				Message_Res = -1; Message_ErrNum = -1; Message_ErrMsg = "Unspecified error has occurred!"; _temp = null;
 			}
+			return _temp;
 		}
-		//
-		public List<dbdata_paginainicial_b4c> PaginaInicial_Listar()
-		{
-			// Shallow copy !!!
-			List<dbdata_paginainicial_b4c> _returnlist = new List<dbdata_paginainicial_b4c>(_paginainicial);
-			return _returnlist;
-		}
-		//
-		public string PaginaInicial_EncontrarPorGid(long gid)
-		{
-			dbdata_paginainicial_b4c _temp = _paginainicial.Find(x => x.Gid == gid);
-			return _temp.PaginaInicial;
-		}
-		//
 	}
 }

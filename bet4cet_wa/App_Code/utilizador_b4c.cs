@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+* This is a personal academic project. Dear PVS-Studio, please check it.
+* PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -80,7 +84,7 @@ namespace bet4cet_wa
 			{
 				// Are the Login Credentials right?
 				SqlConnection sqlcon = new SqlConnection(b4c_global.ConnectionString);
-				SqlCommand sqlcmd = new SqlCommand("LoginUtilizador", sqlcon);
+				SqlCommand sqlcmd = new SqlCommand("Utilizador_Login", sqlcon);
 				sqlcmd.CommandType = CommandType.StoredProcedure;
 				sqlcmd.Parameters.Add("@email", SqlDbType.VarChar, 128).Value = _user.Email;
 				sqlcmd.Parameters.Add("@pswd", SqlDbType.VarChar, 32).Value = _user.Pswd = pswd;
@@ -97,6 +101,8 @@ namespace bet4cet_wa
 			}
 			catch (Exception e)
 			{
+				// Output the Exception
+				Debug.WriteLine("LoginUtilizador : Exception " + e.Message);
 				// If we got here, something happend but we don't know exactly WHAT
 				Message_Res = -1; Message_ErrNum = -1; Message_ErrMsg = "Unspecified error has occurred!";
 				return false;
@@ -117,7 +123,7 @@ namespace bet4cet_wa
 			{
 				// Does user exist?
 				SqlConnection sqlcon = new SqlConnection(b4c_global.ConnectionString);
-				SqlCommand sqlcmd = new SqlCommand("VerificarUtilizadorEmail", sqlcon);
+				SqlCommand sqlcmd = new SqlCommand("Utilizador_VerificarEmail", sqlcon);
 				sqlcmd.CommandType = CommandType.StoredProcedure;
 				sqlcmd.Parameters.Add("@email", SqlDbType.VarChar, 128).Value = _user.Email;
 				sqlcmd.Parameters.Add("@res", SqlDbType.BigInt).Direction = ParameterDirection.Output;
@@ -133,10 +139,56 @@ namespace bet4cet_wa
 			}
 			catch (Exception e)
 			{
+				// Output the Exception
+				Debug.WriteLine("VerificarUtilizadorEmail : Exception " + e.Message);
 				// If we got here, something happend but we don't know exactly WHAT
 				Message_Res = -1; Message_ErrNum = -1; Message_ErrMsg = "Unspecified error has occurred!";
 				return false;
 			}
+		}
+		//
+		public List<dbdata_utilizador_b4c> ListarUtilizadores()
+		{
+			//
+			List<dbdata_utilizador_b4c> _temp = new List<dbdata_utilizador_b4c>();
+			try
+			{
+				// SQL calls to the stored Procedures
+				SqlConnection sqlcon = new SqlConnection(b4c_global.ConnectionString);
+				SqlCommand sqlcmd = new SqlCommand("Utilizador_Listar", sqlcon);
+				sqlcmd.CommandType = CommandType.StoredProcedure;
+				sqlcmd.Parameters.Add("@res", SqlDbType.BigInt).Direction = ParameterDirection.Output;
+				sqlcmd.Parameters.Add("@sql_errnum", SqlDbType.BigInt).Direction = ParameterDirection.Output;
+				sqlcmd.Parameters.Add("@sql_errmsg", SqlDbType.VarChar, 192).Direction = ParameterDirection.Output;
+				sqlcon.Open();
+				SqlDataReader sqldr = sqlcmd.ExecuteReader();
+				// sqlcmd.ExecuteNonQuery();
+				while (sqldr.Read())
+				{
+					/* [ipk],[uid],[gid],[email],[uname],[datanascimento],[dataregisto] */
+					dbdata_utilizador_b4c _tempru = new dbdata_utilizador_b4c();
+					_tempru.Ipk = Convert.ToInt64(sqldr["ipk"]);
+					_tempru.Uid = Convert.ToInt64(sqldr["uid"]);
+					_tempru.Gid = Convert.ToInt64(sqldr["gid"]);
+					_tempru.Email = sqldr["email"].ToString();
+					_tempru.Uname = sqldr["uname"].ToString();
+					_tempru.DataNascimento = Convert.ToDateTime(sqldr["datanascimento"]);
+					_tempru.DataRegisto = Convert.ToDateTime(sqldr["dataregisto"]);
+					_temp.Add(_tempru);
+				}
+				sqlcon.Close();
+				Message_Res = Convert.ToInt64(sqlcmd.Parameters["@res"].Value);
+				Message_ErrNum = Convert.ToInt64(sqlcmd.Parameters["@sql_errnum"].Value);
+				Message_ErrMsg = (sqlcmd.Parameters["@sql_errmsg"].Value).ToString();
+			}
+			catch (Exception e)
+			{
+				// Output the Exception
+				Debug.WriteLine("ListarUtilizadores : Exception " + e.Message);
+				// If we got here, something happend but we don't know exactly WHAT
+				Message_Res = -1; Message_ErrNum = -1; Message_ErrMsg = "Unspecified error has occurred!"; _temp = null;
+			}
+			return _temp;
 		}
 	}
 }
